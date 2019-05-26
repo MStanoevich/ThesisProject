@@ -43,3 +43,6 @@ extracted_metrics.write("codec, NN performance compared to original, File size w
     + "h264-ultrafastSSIM," + str(ufSSIM_confidence) + "," + str(ufSSIM_size) + "," + str(round(ufSSIM_confidence/ufSSIM_size,2)) + "\n"
     + "h264-ultrafastPNSR," + str(ufPNSR_confidence) + "," + str(ufPNSR_size) + "," + str(round(ufPNSR_confidence/ufPNSR_size,2)) + "\n"
         + "h264-mediumSSIM," + str(mSSIM_confidence) + "," + str(mSSIM_size) + "," + str(round(mSSIM_confidence/mSSIM_size,2)))
+
+extracted_metrics_for_plotting = open("extracted_metrics_for_plotting.csv", "w+")
+extracted_metrics_for_plotting.write("h264-ufSSIM,h264-ufPNSR,h264-mSSIM\n" + str(round(ufSSIM_confidence/ufSSIM_size,2)) + "," + str(round(ufPNSR_confidence/ufPNSR_size,2)) + "," + str(round(mSSIM_confidence/mSSIM_size,2)))
