@@ -20,6 +20,6 @@ baseline = [1,1,1]
 
 plt.plot(codec, k)
 plt.plot(codec, baseline)
-plt.xlabel('preset & tune')
+plt.xlabel('h264 preset & tune')
 plt.ylabel('K metric')
 plt.show()

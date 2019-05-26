@@ -11,13 +11,20 @@ original_non_anotated_path = "data_results/non_anotated_results/"
 ultrafastSSIM_anotated_results_path = "data_results/ultrafastSSIM_results/anotated_results/"
 ultrafastPNSR_anotated_results_path = "data_results/ultrafastPNSR_results/anotated_results/"
 
+superfastSSIM_anotated_results_path = "data_results/superfastSSIM_results/anotated_results/"
+superfastPNSR_anotated_results_path = "data_results/superfastPNSR_results/anotated_results/"
+
+veryfastSSIM_anotated_results_path = "data_results/veryfastSSIM_results/anotated_results/"
+veryfastPNSR_anotated_results_path = "data_results/veryfastPNSR_results/anotated_results/"
+
 mediumSSIM_anotated_results_path = "data_results/mediumSSIM_results/anotated_results/"
+mediumPNSR_anotated_results_path = "data_results/mediumPNSR_results/anotated_results/"
 
 # Open files, put them in lists and sort those lists by name
 dre = re.compile(r'(\d+)')
 
-files = glob.glob(original_anotated_path + "*.txt")
-files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+original_anotated_files = glob.glob(original_anotated_path + "*.txt")
+original_anotated_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
 ultrafastSSIM_files = glob.glob(ultrafastSSIM_anotated_results_path + "*.txt")
 ultrafastSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
@@ -25,13 +32,28 @@ ultrafastSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for
 ultrafastPNSR_files = glob.glob(ultrafastPNSR_anotated_results_path + "*.txt")
 ultrafastPNSR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
+superfastSSIM_files = glob.glob(superfastSSIM_anotated_results_path + "*.txt")
+superfastSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
+superfastPNSR_files = glob.glob(superfastPNSR_anotated_results_path + "*.txt")
+superfastPNSR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
+veryfastSSIM_files = glob.glob(veryfastSSIM_anotated_results_path + "*.txt")
+veryfastSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
+veryfastPNSR_files = glob.glob(veryfastPNSR_anotated_results_path + "*.txt")
+veryfastPNSR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
 mediumSSIM_files = glob.glob(mediumSSIM_anotated_results_path + "*.txt")
 mediumSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
+mediumPNSR_files = glob.glob(mediumPNSR_anotated_results_path + "*.txt")
+mediumPNSR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
 # Calcuates totals and writes them to results file
-for file_original, file_ufSSIM, file_ufPNSR, file_mSSIM in zip(files, ultrafastSSIM_files, ultrafastPNSR_files, mediumSSIM_files):
+for file_original, file_ufSSIM, file_ufPNSR, file_sfSSIM, file_sfPNSR, file_vfSSIM, file_vfPNSR, file_mSSIM, file_mPNSR in zip(original_anotated_files, ultrafastSSIM_files, ultrafastPNSR_files, superfastSSIM_files, superfastPNSR_files, veryfastSSIM_files, veryfastPNSR_files, mediumSSIM_files, mediumPNSR_files):
     
-    # original
+    # original anotated
     result_original = open(file_original)
     print(result_original.name)
     total_original = 0
@@ -47,7 +69,7 @@ for file_original, file_ufSSIM, file_ufPNSR, file_mSSIM in zip(files, ultrafastS
     
     print(total_original)
 
-    # ultraSSIM
+    # ultraSSIM anotated
     result_ufSSIM = open(file_ufSSIM)
     print(result_ufSSIM.name)
     total_ufSSIM = 0
@@ -63,7 +85,7 @@ for file_original, file_ufSSIM, file_ufPNSR, file_mSSIM in zip(files, ultrafastS
 
     print(total_ufSSIM)
 
-    # ultrafastPNSR
+    # ultrafastPNSR anotated
     result_ufPNSR = open(file_ufPNSR)
     print(result_ufPNSR.name)
     total_ufPNSR = 0
@@ -79,7 +101,71 @@ for file_original, file_ufSSIM, file_ufPNSR, file_mSSIM in zip(files, ultrafastS
 
     print(total_ufPNSR)
 
-    # mediumSSIM
+    # superfastSSIM anotated
+    result_sfSSIM = open(file_sfSSIM)
+    print(result_sfSSIM.name)
+    total_sfSSIM = 0
+    list_sfSSIM = list()
+
+    for line in result_sfSSIM:
+        confidence = re.findall('[0-9]+', line)
+        list_sfSSIM += confidence
+        print(line)
+    
+    for i in list_sfSSIM:
+        total_sfSSIM += int(i)
+
+    print(total_sfSSIM)
+
+    # superfastSSIM anotated
+    result_sfPNSR = open(file_sfPNSR)
+    print(result_sfPNSR.name)
+    total_sfPNSR = 0
+    list_sfPNSR = list()
+
+    for line in result_sfPNSR:
+        confidence = re.findall('[0-9]+', line)
+        list_sfPNSR += confidence
+        print(line)
+
+    for i in list_sfPNSR:
+        total_sfPNSR += int(i)
+
+    print(total_sfPNSR)
+
+    # veryfastSSIM anotated
+    result_vfSSIM = open(file_vfSSIM)
+    print(result_vfSSIM.name)
+    total_vfSSIM = 0
+    list_vfSSIM = list()
+
+    for line in result_vfSSIM:
+        confidence = re.findall('[0-9]+', line)
+        list_vfSSIM += confidence
+        print(line)
+
+    for i in list_vfSSIM:
+        total_vfSSIM += int(i)
+
+    print(total_vfSSIM)
+
+    # veryfastPNSR anotated
+    result_vfPNSR = open(file_vfPNSR)
+    print(result_vfPNSR.name)
+    total_vfPNSR = 0
+    list_vfPNSR = list()
+
+    for line in result_vfPNSR:
+        confidence = re.findall('[0-9]+', line)
+        list_vfPNSR += confidence
+        print(line)
+
+    for i in list_vfPNSR:
+        total_vfPNSR += int(i)
+
+    print(total_vfPNSR)
+
+    # mediumSSIM anotated
     result_mSSIM = open(file_mSSIM)
     print(result_mSSIM.name)
     total_mSSIM = 0
@@ -95,5 +181,26 @@ for file_original, file_ufSSIM, file_ufPNSR, file_mSSIM in zip(files, ultrafastS
 
     print(total_mSSIM)
 
+    # mediumPNSR anotated
+    result_mPNSR = open(file_mPNSR)
+    print(result_mPNSR)
+    total_mPNSR = 0
+    list_mPNSR = list()
+
+    for line in result_mPNSR:
+        confidence = re.findall('[0-9]+', line)
+        list_mPNSR += confidence
+        print(line)
+    
+    for i in list_mPNSR:
+        total_mPNSR += int(i)
+
+    print(total_mPNSR)
+
+    # Write anotaed data to csv
     result_original_name = re.findall('[0-9]+', result_original.name)
-    file_results.writelines(str(result_original_name) + "," + str(total_original) + "," + str(total_ufSSIM) + "," + str(total_ufPNSR) + "," + str(total_mSSIM) + "\n")
+    file_results.writelines(str(result_original_name) + "," + str(total_original) + "," 
+    + str(total_ufSSIM) + "," + str(total_ufPNSR) + "," + str(total_sfSSIM) + "," + str(total_sfPNSR) + "," 
+    + str(total_vfSSIM) + "," + str(total_vfPNSR) + "," + str(total_mSSIM) + "," + str(total_mPNSR) + "\n")
+
+#TODO create loop for non_anotated data
