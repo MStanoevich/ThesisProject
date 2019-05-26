@@ -1,0 +1,4 @@
+codec, NN performance compared to original, File size when compared to original, K metric
+h264-ultrafastSSIM,97.22,94.74,1.03
+h264-ultrafastPNSR,97.22,94.74,1.03
+h264-mediumSSIM,95.12,102.76,0.93
