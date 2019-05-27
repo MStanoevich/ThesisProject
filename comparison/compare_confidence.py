@@ -6,7 +6,6 @@ file_results = open("results_confidence.csv", "w+")
 
 # Paths to txt files for analysis
 original_anotated_path = "data_results/anotated_results/"
-original_non_anotated_path = "data_results/non_anotated_results/"
 
 ultrafastSSIM_anotated_results_path = "data_results/ultrafastSSIM_results/anotated_results/"
 ultrafastPNSR_anotated_results_path = "data_results/ultrafastPNSR_results/anotated_results/"
