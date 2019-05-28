@@ -3,37 +3,51 @@
 # Make sure all paths used exist
 # Make sure the labels/ folder has been copied from the original darknet repo into the data/ folder
 # FFE path
-ffePath=/home/jonathan/Documents/Thesis/frame-feed-evaluator
-darknetPath=/home/jonathan/Documents/Thesis/yolo-perception-master/darknet
+#ffePath=/home/jonathan/Documents/Thesis/frame-feed-evaluator
+darknetPath=/home/marko/Thesis/yolo-perception/darknet
 # darknet path
 originalImages="./data/anotated"
 declare -a presetPaths=(
-"../../frame-feed-evaluator/fast-pnsr-anotated"
-"../../frame-feed-evaluator/fast-ssim-anotated"
-"../../frame-feed-evaluator/faster-pnsr-anotated"
-"../../frame-feed-evaluator/faster-ssim-anotated"
-"../../frame-feed-evaluator/medium-pnsr-anotated"
-"../../frame-feed-evaluator/medium-ssim-anotated"
-"../../frame-feed-evaluator/superfast-pnsr-anotated"
-"../../frame-feed-evaluator/superfast-ssim-anotated"
-"../../frame-feed-evaluator/ultrafast-pnsr-anotated"
-"../../frame-feed-evaluator/ultrafast-ssim-anotated"
-"../../frame-feed-evaluator/veryfast-pnsr-anotated"
-"../../frame-feed-evaluator/veryfast-ssim-anotated"
+"../../data/ffmpeg/non_anotated/original_from_video"
+"../../data/ffmpeg/non_anotated/ufSSIM"
+"../../data/ffmpeg/non_anotated/ufPSNR"
+"../../data/ffmpeg/non_anotated/sfSSIM"
+"../../data/ffmpeg/non_anotated/sfPSNR"
+"../../data/ffmpeg/non_anotated/vfSSIM"
+"../../data/ffmpeg/non_anotated/vfPSNR"
+"../../data/ffmpeg/non_anotated/ferSSIM"
+"../../data/ffmpeg/non_anotated/ferPSNR"
+"../../data/ffmpeg/non_anotated/fSSIM"
+"../../data/ffmpeg/non_anotated/fPSNR"
+"../../data/ffmpeg/non_anotated/mSSIM"
+"../../data/ffmpeg/non_anotated/mPSNR"
+"../../data/ffmpeg/non_anotated/sSSIM"
+"../../data/ffmpeg/non_anotated/sPSNR"
+"../../data/ffmpeg/non_anotated/serSSIM"
+"../../data/ffmpeg/non_anotated/serPSNR"
+"../../data/ffmpeg/non_anotated/vsSSIM"
+"../../data/ffmpeg/non_anotated/vsPSNR"
 )
 declare -a presetNames=(
-"fast-pnsr"
-"fast-ssim"
-"faster-pnsr"
-"faster-ssim"
-"medium-pnsr"
-"medium-ssim"
-"superfast-pnsr"
-"superfast-ssim"
-"ultrafast-pnsr"
+"original-from-video"
 "ultrafast-ssim"
-"veryfast-pnsr"
+"ultrafast-psnr"
+"superfast-ssim"
+"superfast-psnr"
 "veryfast-ssim"
+"veryfast-psnr"
+"faster-ssim"
+"faster-psnr"
+"fast-ssim"
+"fast-psnr"
+"medium-ssim"
+"medium-psnr"
+"slow-ssim"
+"slow-psnr"
+"slower-ssim"
+"slower-psnr"
+"veryslow-ssim"
+"veryslow-psnr"
 )
 # start time variable
 starttime=`date +%s`
@@ -68,8 +82,8 @@ counter=0
 directory=$PWD/data/images_to_check/*.jpg
 
 # first, run ffe
-cd $ffePath
-./automate.sh # run ffe automation
+#cd $ffePath
+#./automate.sh # run ffe automation
 cd $darknetPath
 # run darknet on everything
 for preset in ${presetPaths[@]}; do
