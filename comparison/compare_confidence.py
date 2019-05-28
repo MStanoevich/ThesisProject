@@ -5,25 +5,25 @@ import re
 file_results = open("results_confidence.csv", "w+")
 
 # Paths to txt files for analysis
-original_anotated_path = "data_results/anotated_results/"
+original_anotated_path = "data_results/mock/original_results/"
 
-ultrafastSSIM_anotated_results_path = "data_results/ultrafastSSIM_results/anotated_results/"
-ultrafastPNSR_anotated_results_path = "data_results/ultrafastPNSR_results/anotated_results/"
+ultrafastSSIM_anotated_results_path = "data_results/mock/ultrafastSSIM_results/anotated_results/"
+ultrafastPNSR_anotated_results_path = "data_results/mock/ultrafastPNSR_results/anotated_results/"
 
-superfastSSIM_anotated_results_path = "data_results/superfastSSIM_results/anotated_results/"
-superfastPNSR_anotated_results_path = "data_results/superfastPNSR_results/anotated_results/"
+superfastSSIM_anotated_results_path = "data_results/mock/superfastSSIM_results/anotated_results/"
+superfastPNSR_anotated_results_path = "data_results/mock/superfastPNSR_results/anotated_results/"
 
-veryfastSSIM_anotated_results_path = "data_results/veryfastSSIM_results/anotated_results/"
-veryfastPNSR_anotated_results_path = "data_results/veryfastPNSR_results/anotated_results/"
+veryfastSSIM_anotated_results_path = "data_results/mock/veryfastSSIM_results/anotated_results/"
+veryfastPNSR_anotated_results_path = "data_results/mock/veryfastPNSR_results/anotated_results/"
 
-fasterSSIM_anotated_results_path = "data_results/fasterSSIM_results/anotated_results/"
-fasterPNSR_anotated_results_path = "data_results/fasterPNSR_results/anotated_results/"
+fasterSSIM_anotated_results_path = "data_results/mock/fasterSSIM_results/anotated_results/"
+fasterPNSR_anotated_results_path = "data_results/mock/fasterPNSR_results/anotated_results/"
 
-fastSSIM_anotated_results_path = "data_results/fastSSIM_results/anotated_results/"
-fastPNSR_anotated_results_path = "data_results/fastPNSR_results/anotated_results/"
+fastSSIM_anotated_results_path = "data_results/mock/fastSSIM_results/anotated_results/"
+fastPNSR_anotated_results_path = "data_results/mock/fastPNSR_results/anotated_results/"
 
-mediumSSIM_anotated_results_path = "data_results/mediumSSIM_results/anotated_results/"
-mediumPNSR_anotated_results_path = "data_results/mediumPNSR_results/anotated_results/"
+mediumSSIM_anotated_results_path = "data_results/mock/mediumSSIM_results/anotated_results/"
+mediumPNSR_anotated_results_path = "data_results/mock/mediumPNSR_results/anotated_results/"
 
 # Open files, put them in lists and sort those lists by name
 dre = re.compile(r'(\d+)')

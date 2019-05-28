@@ -5,25 +5,25 @@ import glob
 file_results = open("results_size.csv", "w+")
 
 # Paths to txt files for analysis
-original_anotated_path = "data/original/"
+original_anotated_path = "data/anotated_mock/original/"
 
-ultrafastSSIM_anotated_path = "data/ultrafastSSIM/"
-ultrafastPNSR_anotated_path = "data/ultrafastPNSR/"
+ultrafastSSIM_anotated_path = "data/anotated_mock/ultrafastSSIM/"
+ultrafastPNSR_anotated_path = "data/anotated_mock/ultrafastPNSR/"
 
-superfastSSIM_anotated_path = "data/superfastSSIM/"
-superfastPNSR_anotated_path = "data/superfastPNSR/"
+superfastSSIM_anotated_path = "data/anotated_mock/superfastSSIM/"
+superfastPNSR_anotated_path = "data/anotated_mock/superfastPNSR/"
 
-veryfastSSIM_anotated_path = "data/veryfastSSIM/"
-veryfastPNSR_anotated_path = "data/veryfastPNSR/"
+veryfastSSIM_anotated_path = "data/anotated_mock/veryfastSSIM/"
+veryfastPNSR_anotated_path = "data/anotated_mock/veryfastPNSR/"
 
-fasterSSIM_anotated_path = "data/fasterSSIM/"
-fasterPNSR_anotated_path = "data/fasterPNSR/"
+fasterSSIM_anotated_path = "data/anotated_mock/fasterSSIM/"
+fasterPNSR_anotated_path = "data/anotated_mock/fasterPNSR/"
 
-fastSSIM_anotated_path = "data/fastSSIM/"
-fastPNSR_anotated_path = "data/fastPNSR/"
+fastSSIM_anotated_path = "data/anotated_mock/fastSSIM/"
+fastPNSR_anotated_path = "data/anotated_mock/fastPNSR/"
 
-mediumSSIM_anotated_path = "data/mediumSSIM/"
-mediumPNSR_anotated_path = "data/mediumPNSR/"
+mediumSSIM_anotated_path = "data/anotated_mock/mediumSSIM/"
+mediumPNSR_anotated_path = "data/anotated_mock/mediumPNSR/"
 
 # Put files in lists
 original_files = glob.glob(original_anotated_path + "*.png")
