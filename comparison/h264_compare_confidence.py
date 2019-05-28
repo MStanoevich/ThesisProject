@@ -6,27 +6,34 @@ file_results = open("h264_results/results_confidence.csv", "w+")
 
 # Paths to txt files for analysis
 # Change directory paths as appropriate for current dataset
-original_path = "data_results/mock/original_results/"
+original_path = "data_results/anotated/original_from_video/"
 
-ultrafastSSIM_results_path = "data_results/mock/ultrafastSSIM_results/anotated_results/"
-ultrafastPNSR_results_path = "data_results/mock/ultrafastPNSR_results/anotated_results/"
+ultrafastSSIM_results_path = "data_results/anotated/ultrafast-ssim/"
+ultrafastPSNR_results_path = "data_results/anotated/ultrafast-psnr/"
 
-superfastSSIM_results_path = "data_results/mock/superfastSSIM_results/anotated_results/"
-superfastPNSR_results_path = "data_results/mock/superfastPNSR_results/anotated_results/"
+superfastSSIM_results_path = "data_results/anotated/superfast-ssim/"
+superfastPSNR_results_path = "data_results/anotated/superfast-psnr/"
 
-veryfastSSIM_results_path = "data_results/mock/veryfastSSIM_results/anotated_results/"
-veryfastPNSR_results_path = "data_results/mock/veryfastPNSR_results/anotated_results/"
+veryfastSSIM_results_path = "data_results/anotated/veryfast-ssim/"
+veryfastPSNR_results_path = "data_results/anotated/veryfast-psnr/"
 
-fasterSSIM_results_path = "data_results/mock/fasterSSIM_results/anotated_results/"
-fasterPNSR_results_path = "data_results/mock/fasterPNSR_results/anotated_results/"
+fasterSSIM_results_path = "data_results/anotated/faster-ssim/"
+fasterPSNR_results_path = "data_results/anotated/faster-psnr/"
 
-fastSSIM_results_path = "data_results/mock/fastSSIM_results/anotated_results/"
-fastPNSR_results_path = "data_results/mock/fastPNSR_results/anotated_results/"
+fastSSIM_results_path = "data_results/anotated/fast-ssim/"
+fastPSNR_results_path = "data_results/anotated/fast-psnr/"
 
-mediumSSIM_results_path = "data_results/mock/mediumSSIM_results/anotated_results/"
-mediumPNSR_results_path = "data_results/mock/mediumPNSR_results/anotated_results/"
+mediumSSIM_results_path = "data_results/anotated/medium-ssim/"
+mediumPSNR_results_path = "data_results/anotated/medium-psnr/"
 
-#TODO add all remaining presets/tunes
+slowSSIM_results_path = "data_results/anotated/slow-ssim/"
+slowPSNR_results_path = "data_results/anotated/slow-psnr/"
+
+slowerSSIM_results_path = "data_results/anotated/slower-ssim/"
+slowerPSNR_results_path = "data_results/anotated/slower-psnr/"
+
+veryslowSSIM_results_path = "data_results/anotated/veryslow-ssim/"
+veryslowPSNR_results_path = "data_results/anotated/veryslow-psnr/"
 
 # Open files, put them in lists and sort those lists by name
 dre = re.compile(r'(\d+)')
@@ -37,41 +44,59 @@ original_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in
 ultrafastSSIM_files = glob.glob(ultrafastSSIM_results_path + "*.txt")
 ultrafastSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
-ultrafastPNSR_files = glob.glob(ultrafastPNSR_results_path + "*.txt")
-ultrafastPNSR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+ultrafastPSNR_files = glob.glob(ultrafastPSNR_results_path + "*.txt")
+ultrafastPSNR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
 superfastSSIM_files = glob.glob(superfastSSIM_results_path + "*.txt")
 superfastSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
-superfastPNSR_files = glob.glob(superfastPNSR_results_path + "*.txt")
-superfastPNSR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+superfastPSNR_files = glob.glob(superfastPSNR_results_path + "*.txt")
+superfastPSNR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
 veryfastSSIM_files = glob.glob(veryfastSSIM_results_path + "*.txt")
 veryfastSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
-veryfastPNSR_files = glob.glob(veryfastPNSR_results_path + "*.txt")
-veryfastPNSR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+veryfastPSNR_files = glob.glob(veryfastPSNR_results_path + "*.txt")
+veryfastPSNR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
 fasterSSIM_files = glob.glob(fasterSSIM_results_path + "*.txt")
 fasterSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
-fasterPNSR_files = glob.glob(fasterPNSR_results_path + "*.txt")
-fasterPNSR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+fasterPSNR_files = glob.glob(fasterPSNR_results_path + "*.txt")
+fasterPSNR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
 fastSSIM_files = glob.glob(fastSSIM_results_path + "*.txt")
 fastSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
-fastPNSR_files = glob.glob(fastPNSR_results_path + "*.txt")
-fastPNSR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+fastPSNR_files = glob.glob(fastPSNR_results_path + "*.txt")
+fastPSNR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
 mediumSSIM_files = glob.glob(mediumSSIM_results_path + "*.txt")
 mediumSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
-mediumPNSR_files = glob.glob(mediumPNSR_results_path + "*.txt")
-mediumPNSR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+mediumPSNR_files = glob.glob(mediumPSNR_results_path + "*.txt")
+mediumPSNR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
+slowSSIM_files = glob.glob(slowSSIM_results_path + "*.txt")
+slowSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
+slowPSNR_files = glob.glob(slowPSNR_results_path + "*.txt")
+slowPSNR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
+slowerSSIM_files = glob.glob(slowerSSIM_results_path + "*.txt")
+slowerSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
+slowerPSNR_files = glob.glob(slowerPSNR_results_path + "*.txt")
+slowerPSNR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
+veryslowSSIM_files = glob.glob(veryslowSSIM_results_path + "*.txt")
+veryslowSSIM_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
+
+veryslowPSNR_files = glob.glob(veryslowPSNR_results_path + "*.txt")
+veryslowPSNR_files.sort(key=lambda l: [int(s) if s.isdigit() else s.lower() for s in re.split(dre, l)])
 
 # Calcuates totals and writes them to results file
-for file_original, file_ufSSIM, file_ufPNSR, file_sfSSIM, file_sfPNSR, file_vfSSIM, file_vfPNSR, file_ferSSIM, file_ferPNSR, file_fSSIM, file_fPNSR, file_mSSIM, file_mPNSR in zip(original_files, ultrafastSSIM_files, ultrafastPNSR_files, superfastSSIM_files, superfastPNSR_files, veryfastSSIM_files, veryfastPNSR_files, fasterSSIM_files, fasterPNSR_files, fastSSIM_files, fastPNSR_files, mediumSSIM_files, mediumPNSR_files):
+for file_original, file_ufSSIM, file_ufPSNR, file_sfSSIM, file_sfPSNR, file_vfSSIM, file_vfPSNR, file_ferSSIM, file_ferPSNR, file_fSSIM, file_fPSNR, file_mSSIM, file_mPSNR, file_sSSIM, file_sPSNR, file_serSSIM, file_serPSNR, file_vsSSIM, file_vsPSNR in zip(original_files, ultrafastSSIM_files, ultrafastPSNR_files, superfastSSIM_files, superfastPSNR_files, veryfastSSIM_files, veryfastPSNR_files, fasterSSIM_files, fasterPSNR_files, fastSSIM_files, fastPSNR_files, mediumSSIM_files, mediumPSNR_files, slowSSIM_files, slowPSNR_files, slowerSSIM_files, slowerPSNR_files, veryslowSSIM_files, veryslowPSNR_files):
     
     # original
     result_original = open(file_original)
@@ -105,21 +130,21 @@ for file_original, file_ufSSIM, file_ufPNSR, file_sfSSIM, file_sfPNSR, file_vfSS
 
     print(total_ufSSIM)
 
-    # ultrafastPNSR
-    result_ufPNSR = open(file_ufPNSR)
-    print(result_ufPNSR.name)
-    total_ufPNSR = 0
-    list_ufPNSR = list()
+    # ultrafastPSNR
+    result_ufPSNR = open(file_ufPSNR)
+    print(result_ufPSNR.name)
+    total_ufPSNR = 0
+    list_ufPSNR = list()
 
-    for line in result_ufPNSR:
+    for line in result_ufPSNR:
         confidence = re.findall('[0-9]+', line)
-        list_ufPNSR += confidence
+        list_ufPSNR += confidence
         print(line)
     
-    for i in list_ufPNSR:
-        total_ufPNSR += int(i)
+    for i in list_ufPSNR:
+        total_ufPSNR += int(i)
 
-    print(total_ufPNSR)
+    print(total_ufPSNR)
 
     # superfastSSIM
     result_sfSSIM = open(file_sfSSIM)
@@ -138,20 +163,20 @@ for file_original, file_ufSSIM, file_ufPNSR, file_sfSSIM, file_sfPNSR, file_vfSS
     print(total_sfSSIM)
 
     # superfastSSIM
-    result_sfPNSR = open(file_sfPNSR)
-    print(result_sfPNSR.name)
-    total_sfPNSR = 0
-    list_sfPNSR = list()
+    result_sfPSNR = open(file_sfPSNR)
+    print(result_sfPSNR.name)
+    total_sfPSNR = 0
+    list_sfPSNR = list()
 
-    for line in result_sfPNSR:
+    for line in result_sfPSNR:
         confidence = re.findall('[0-9]+', line)
-        list_sfPNSR += confidence
+        list_sfPSNR += confidence
         print(line)
 
-    for i in list_sfPNSR:
-        total_sfPNSR += int(i)
+    for i in list_sfPSNR:
+        total_sfPSNR += int(i)
 
-    print(total_sfPNSR)
+    print(total_sfPSNR)
 
     # veryfastSSIM
     result_vfSSIM = open(file_vfSSIM)
@@ -169,21 +194,21 @@ for file_original, file_ufSSIM, file_ufPNSR, file_sfSSIM, file_sfPNSR, file_vfSS
 
     print(total_vfSSIM)
 
-    # veryfastPNSR
-    result_vfPNSR = open(file_vfPNSR)
-    print(result_vfPNSR.name)
-    total_vfPNSR = 0
-    list_vfPNSR = list()
+    # veryfastPSNR
+    result_vfPSNR = open(file_vfPSNR)
+    print(result_vfPSNR.name)
+    total_vfPSNR = 0
+    list_vfPSNR = list()
 
-    for line in result_vfPNSR:
+    for line in result_vfPSNR:
         confidence = re.findall('[0-9]+', line)
-        list_vfPNSR += confidence
+        list_vfPSNR += confidence
         print(line)
 
-    for i in list_vfPNSR:
-        total_vfPNSR += int(i)
+    for i in list_vfPSNR:
+        total_vfPSNR += int(i)
 
-    print(total_vfPNSR)
+    print(total_vfPSNR)
 
     # fasterSSIM
     result_ferSSIM = open(file_ferSSIM)
@@ -201,21 +226,21 @@ for file_original, file_ufSSIM, file_ufPNSR, file_sfSSIM, file_sfPNSR, file_vfSS
 
     print(total_ferSSIM)
 
-    # fasterPNSR
-    result_ferPNSR = open(file_ferPNSR)
-    print(result_ferPNSR.name)
-    total_ferPNSR = 0
-    list_ferPNSR = list()
+    # fasterPSNR
+    result_ferPSNR = open(file_ferPSNR)
+    print(result_ferPSNR.name)
+    total_ferPSNR = 0
+    list_ferPSNR = list()
 
-    for line in result_ferPNSR:
+    for line in result_ferPSNR:
         confidence = re.findall('[0-9]+', line)
-        list_ferPNSR += confidence
+        list_ferPSNR += confidence
         print(line)
     
-    for i in list_ferPNSR:
-        total_ferPNSR += int(i)
+    for i in list_ferPSNR:
+        total_ferPSNR += int(i)
 
-    print(total_ferPNSR)
+    print(total_ferPSNR)
 
     # fastSSIM
     result_fSSIM = open(file_fSSIM)
@@ -233,21 +258,21 @@ for file_original, file_ufSSIM, file_ufPNSR, file_sfSSIM, file_sfPNSR, file_vfSS
 
     print(total_fSSIM)
 
-    # fastPNSR
-    result_fPNSR = open(file_fPNSR)
-    print(result_fPNSR.name)
-    total_fPNSR = 0
-    list_fPNSR = list()
+    # fastPSNR
+    result_fPSNR = open(file_fPSNR)
+    print(result_fPSNR.name)
+    total_fPSNR = 0
+    list_fPSNR = list()
 
-    for line in result_fPNSR:
+    for line in result_fPSNR:
         confidence = re.findall('[0-9]+', line)
-        list_fPNSR += confidence
+        list_fPSNR += confidence
         print(line)
     
-    for i in list_fPNSR:
-        total_fPNSR += int(i)
+    for i in list_fPSNR:
+        total_fPSNR += int(i)
 
-    print(total_fPNSR)
+    print(total_fPSNR)
 
     # mediumSSIM
     result_mSSIM = open(file_mSSIM)
@@ -265,25 +290,125 @@ for file_original, file_ufSSIM, file_ufPNSR, file_sfSSIM, file_sfPNSR, file_vfSS
 
     print(total_mSSIM)
 
-    # mediumPNSR
-    result_mPNSR = open(file_mPNSR)
-    print(result_mPNSR)
-    total_mPNSR = 0
-    list_mPNSR = list()
+    # mediumPSNR
+    result_mPSNR = open(file_mPSNR)
+    print(result_mPSNR)
+    total_mPSNR = 0
+    list_mPSNR = list()
 
-    for line in result_mPNSR:
+    for line in result_mPSNR:
         confidence = re.findall('[0-9]+', line)
-        list_mPNSR += confidence
+        list_mPSNR += confidence
         print(line)
     
-    for i in list_mPNSR:
-        total_mPNSR += int(i)
+    for i in list_mPSNR:
+        total_mPSNR += int(i)
 
-    print(total_mPNSR)
+    print(total_mPSNR)
+
+    # TODO add vsSSIM, vsPSNR
+
+    # slowSSIM
+    result_sSSIM = open(file_sSSIM)
+    print(result_sSSIM.name)
+    total_sSSIM = 0
+    list_sSSIM = list()
+
+    for line in result_sSSIM:
+        confidence = re.findall('[0-9]+', line)
+        list_sSSIM += confidence
+        print(line)
+    
+    for i in list_sSSIM:
+        total_sSSIM += int(i)
+
+    print(total_sSSIM)
+
+    # slowPSNR
+    result_sPSNR = open(file_sPSNR)
+    print(result_sPSNR)
+    total_sPSNR = 0
+    list_sPSNR = list()
+
+    for line in result_sPSNR:
+        confidence = re.findall('[0-9]+', line)
+        list_sPSNR += confidence
+        print(line)
+    
+    for i in list_sPSNR:
+        total_sPSNR += int(i)
+
+    print(total_sPSNR)
+
+    # slowerSSIM
+    result_serSSIM = open(file_serSSIM)
+    print(result_serSSIM.name)
+    total_serSSIM = 0
+    list_serSSIM = list()
+
+    for line in result_serSSIM:
+        confidence = re.findall('[0-9]+', line)
+        list_serSSIM += confidence
+        print(line)
+    
+    for i in list_serSSIM:
+        total_serSSIM += int(i)
+
+    print(total_serSSIM)
+
+    # slowerPSNR
+    result_serPSNR = open(file_serPSNR)
+    print(result_serPSNR)
+    total_serPSNR = 0
+    list_serPSNR = list()
+
+    for line in result_serPSNR:
+        confidence = re.findall('[0-9]+', line)
+        list_serPSNR += confidence
+        print(line)
+    
+    for i in list_serPSNR:
+        total_serPSNR += int(i)
+
+    print(total_serPSNR)
+
+    # veryslowSSIM
+    result_vsSSIM = open(file_vsSSIM)
+    print(result_vsSSIM.name)
+    total_vsSSIM = 0
+    list_vsSSIM = list()
+
+    for line in result_vsSSIM:
+        confidence = re.findall('[0-9]+', line)
+        list_vsSSIM += confidence
+        print(line)
+    
+    for i in list_vsSSIM:
+        total_vsSSIM += int(i)
+
+    print(total_vsSSIM)
+
+    # veryslowPSNR
+    result_vsPSNR = open(file_vsPSNR)
+    print(result_vsPSNR)
+    total_vsPSNR = 0
+    list_vsPSNR = list()
+
+    for line in result_vsPSNR:
+        confidence = re.findall('[0-9]+', line)
+        list_vsPSNR += confidence
+        print(line)
+    
+    for i in list_vsPSNR:
+        total_vsPSNR += int(i)
+
+    print(total_vsPSNR)
 
     # Write data to csv
     result_original_name = re.findall('[0-9]+', result_original.name)
-    file_results.writelines(str(result_original_name) + "," + str(total_original) + "," 
-    + str(total_ufSSIM) + "," + str(total_ufPNSR) + "," + str(total_sfSSIM) + "," + str(total_sfPNSR) + "," 
-    + str(total_vfSSIM) + "," + str(total_vfPNSR) + "," + str(total_ferSSIM) + "," + str(total_ferPNSR) + ","
-    + str(total_fSSIM) + "," + str(total_fPNSR) + "," + str(total_mSSIM) + "," + str(total_mPNSR) + "\n")
+    file_results.writelines(str(result_original_name) + "," + str(total_original) + ","
+    + str(total_ufSSIM) + "," + str(total_ufPSNR) + "," + str(total_sfSSIM) + "," + str(total_sfPSNR) + "," 
+    + str(total_vfSSIM) + "," + str(total_vfPSNR) + "," + str(total_ferSSIM) + "," + str(total_ferPSNR) + ","
+    + str(total_fSSIM) + "," + str(total_fPSNR) + "," + str(total_mSSIM) + "," + str(total_mPSNR) + ","
+    + str(total_sSSIM) + "," + str(total_sPSNR) + "," + str(total_serSSIM) + "," + str(total_serPSNR) + ","
+    + str(total_vsSSIM) + "," + str(total_vsPSNR) + "\n")
