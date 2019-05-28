@@ -1,6 +1,0 @@
-blue: 92%
-blue: 63%
-red: 34%
-blue: 67%
-red: 55%
-red: 78%

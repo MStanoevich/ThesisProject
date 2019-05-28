@@ -1,2 +1,0 @@
-yellow: 27%
-yellow: 49%

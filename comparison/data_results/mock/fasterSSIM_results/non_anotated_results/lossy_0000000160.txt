@@ -1,5 +1,0 @@
-blue: 35%
-blue: 81%
-yellow: 30%
-yellow: 91%
-yellow: 79%
