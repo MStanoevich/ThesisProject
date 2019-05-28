@@ -24,7 +24,7 @@ total_fPNSR_confidence = 0
 total_mSSIM_confidence = 0
 total_mPNSR_confidence = 0
 
-with open("results_confidence.csv") as f:
+with open("h264_results/results_confidence.csv") as f:
     for row in csv.reader(f):
         total_original_confidence += int(row[1])
         total_ufSSIM_confidence += int(row[2])
@@ -60,7 +60,7 @@ total_fPNSR_size = 0
 total_mSSIM_size = 0
 total_mPNSR_size = 0
 
-with open("results_size.csv") as f:
+with open("h264_results/results_size.csv") as f:
         for row in csv.reader(f):
             total_original_size += int(row[0])
             total_ufSSIM_size += int(row[1])
@@ -113,7 +113,7 @@ mSSIM_size = percentage(total_mSSIM_size, total_original_size)
 mPNSR_confidence = percentage(total_mPNSR_confidence, total_original_confidence)
 mPNSR_size = percentage(total_mPNSR_size, total_original_size)
 
-extracted_metrics = open("extracted_metrics.csv", "w+")
+extracted_metrics = open("h264_results/extracted_metrics.csv", "w+")
 extracted_metrics.write("codec, NN performance compared to original, File size when compared to original, K metric\n"
     + "h264-ultrafastSSIM," + str(ufSSIM_confidence) + "," + str(ufSSIM_size) + "," + str(round(ufSSIM_confidence/ufSSIM_size,2)) + "\n"
     + "h264-ultrafastPNSR," + str(ufPNSR_confidence) + "," + str(ufPNSR_size) + "," + str(round(ufPNSR_confidence/ufPNSR_size,2)) + "\n"
@@ -128,7 +128,7 @@ extracted_metrics.write("codec, NN performance compared to original, File size w
     + "h264-mediumSSIM," + str(mSSIM_confidence) + "," + str(mSSIM_size) + "," + str(round(mSSIM_confidence/mSSIM_size,2)) + "\n"
     + "h264-mediumPNSR," + str(mPNSR_confidence) + "," + str(mPNSR_size) + "," + str(round(mPNSR_confidence/mPNSR_size,2)))
 
-k_metrics_for_plotting = open("k_metrics_for_plotting.csv", "w+")
+k_metrics_for_plotting = open("h264_results/k_metrics_for_plotting.csv", "w+")
 k_metrics_for_plotting.write("h264-ufSSIM,h264-ufPNSR,h264-sfSSIM,h264-sfPNSR,h264-vfSSIM,h264-vfPNSR,h264-ferSSIM,h264-ferPNSR,h264-fSSIM,h265-fPNSR,h264-mSSIM,h264-mPNSR\n" 
     + str(round(ufSSIM_confidence/ufSSIM_size,2)) + "," + str(round(ufPNSR_confidence/ufPNSR_size,2)) + "," 
     + str(round(sfSSIM_confidence/sfSSIM_size,2)) + "," + str(round(sfPNSR_confidence/sfPNSR_size,2)) + ","
@@ -137,13 +137,13 @@ k_metrics_for_plotting.write("h264-ufSSIM,h264-ufPNSR,h264-sfSSIM,h264-sfPNSR,h2
     + str(round(fSSIM_confidence/fSSIM_size,2)) + "," + str(round(fPNSR_confidence/fPNSR_size,2)) + "," 
     + str(round(mSSIM_confidence/mSSIM_size,2)) + "," + str(round(mPNSR_confidence/mPNSR_size,2)))
 
-confidence_metrics_for_plotting = open("confidence_metrics_for_plotting.csv", "w+")
+confidence_metrics_for_plotting = open("h264_results/confidence_metrics_for_plotting.csv", "w+")
 confidence_metrics_for_plotting.write("h264-ufSSIM,h264-ufPNSR,h264-sfSSIM,h264-sfPNSR,h264-vfSSIM,h264-vfPNSR,h264-ferSSIM,h264-ferPNSR,h264-fSSIM,h265-fPNSR,h264-mSSIM,h264-mPNSR\n"
     + str(ufSSIM_confidence) + "," + str(ufPNSR_confidence) + "," + str(sfSSIM_confidence) + "," + str(sfPNSR_confidence) + "," 
     + str(vfSSIM_confidence) + "," + str(vfPNSR_confidence) + "," + str(ferSSIM_confidence) + "," + str(ferPNSR_confidence) + ","
     + str(fSSIM_confidence) + "," + str(fPNSR_confidence) + "," + str(mSSIM_confidence) + "," + str(mPNSR_confidence))
 
-size_metrics_for_plotting = open("size_metrics_for_plotting.csv", "w+")
+size_metrics_for_plotting = open("h264_results/size_metrics_for_plotting.csv", "w+")
 size_metrics_for_plotting.write("h264-ufSSIM,h264-ufPNSR,h264-sfSSIM,h264-sfPNSR,h264-vfSSIM,h264-vfPNSR,h264-ferSSIM,h264-ferPNSR,h264-fSSIM,h265-fPNSR,h264-mSSIM,h264-mPNSR\n"
     + str(ufSSIM_size) + "," + str(ufPNSR_size) + "," + str(sfSSIM_size) + "," + str(sfPNSR_size) + "," 
     + str(vfSSIM_size) + "," + str(vfPNSR_size) + "," + str(ferSSIM_size) + "," + str(ferPNSR_size) + ","

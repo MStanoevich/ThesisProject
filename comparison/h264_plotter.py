@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import csv
 
 #h264
-with open("k_metrics_for_plotting.csv") as f:
+with open("h264_results/k_metrics_for_plotting.csv") as f:
     f_csv = csv.reader(f)
     headers = next(f_csv)
     for row in f_csv:
@@ -21,7 +21,7 @@ with open("k_metrics_for_plotting.csv") as f:
         k_mSSIM = float(row[10])
         k_mPNSR = float(row[11])
 
-with open("confidence_metrics_for_plotting.csv") as f:
+with open("h264_results/confidence_metrics_for_plotting.csv") as f:
     f_csv = csv.reader(f)
     headers = next(f_csv)
     for row in f_csv:
@@ -38,7 +38,7 @@ with open("confidence_metrics_for_plotting.csv") as f:
         mSSIM_conf = float(row[10])
         mPNSR_conf = float(row[11])
 
-with open("size_metrics_for_plotting.csv") as f:
+with open("h264_results/size_metrics_for_plotting.csv") as f:
     f_csv = csv.reader(f)
     headers = next(f_csv)
     for row in f_csv:
@@ -76,5 +76,9 @@ baseline = [1,1,1,1,1,1,1,1,1,1,1,1]
 plt.plot(codec, size)
 plt.xlabel('h264 preset & tune')
 plt.ylabel('File size % compared to original')
+
+# TODO finnish
+# To plot barchart performance
+#plt.bart(performance, codec, align = 'center', alpha=0.5)
 
 plt.show()
