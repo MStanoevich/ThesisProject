@@ -6,7 +6,7 @@ file_results = open("h264_results/results_confidence.csv", "w+")
 
 # Paths to txt files for analysis
 # Change directory paths as appropriate for current dataset
-original_path = "data_results/anotated/original_from_video/"
+original_path = "data_results/anotated/original-from-video/"
 
 ultrafastSSIM_results_path = "data_results/anotated/ultrafast-ssim/"
 ultrafastPSNR_results_path = "data_results/anotated/ultrafast-psnr/"
@@ -412,3 +412,5 @@ for file_original, file_ufSSIM, file_ufPSNR, file_sfSSIM, file_sfPSNR, file_vfSS
     + str(total_fSSIM) + "," + str(total_fPSNR) + "," + str(total_mSSIM) + "," + str(total_mPSNR) + ","
     + str(total_sSSIM) + "," + str(total_sPSNR) + "," + str(total_serSSIM) + "," + str(total_serPSNR) + ","
     + str(total_vsSSIM) + "," + str(total_vsPSNR) + "\n")
+
+print("Done")

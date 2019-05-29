@@ -27,13 +27,13 @@ mediumSSIM_path = "data/anotated/mSSIM/"
 mediumPSNR_path = "data/anotated/mPSNR/"
 
 slowSSIM_path = "data/anotated/sSSIM/"
-slowPSNR_path = "data/anotated/sPSNR"
+slowPSNR_path = "data/anotated/sPSNR/"
 
 slowerSSIM_path = "data/anotated/serSSIM/"
-slowerPSNR_path = "data/anotated/serPSNR"
+slowerPSNR_path = "data/anotated/serPSNR/"
 
 veryslowSSIM_path = "data/anotated/vsSSIM/"
-veryslowPSNR_path = "data/anotated/vsPSNR"
+veryslowPSNR_path = "data/anotated/vsPSNR/"
 
 # Put files in lists
 original_files = glob.glob(original_path + "*.png")
@@ -136,7 +136,7 @@ for file in slowerSSIM_files:
 for file in slowerPSNR_files:
     total_serPSNR += os.stat(file).st_size
 
-for file in veryslowSSIM_path:
+for file in veryslowSSIM_files:
     total_vsSSIM += os.stat(file).st_size
 
 for file in veryslowPSNR_files:
@@ -146,4 +146,6 @@ file_results.write(str(total_original) + "," + str(total_ufSSIM) + "," + str(tot
     + str(total_sfSSIM) + "," + str(total_sfPSNR) + "," + str(total_vfSSIM) + "," + str(total_vfPSNR) + ","
     + str(total_ferSSIM) + "," + str(total_ferPSNR) + "," + str(total_fSSIM) + "," + str(total_fPSNR) + ","
     + str(total_mSSIM) + "," + str(total_mPSNR) + "," + str(total_sSSIM) + "," + str(total_sPSNR) + ","
-    + str(total_serSSIM) + "," + str(total_serPSNR) + "," + str(total_vsSSIM) + "," + str(total_vsPSNR) + ",")   
+    + str(total_serSSIM) + "," + str(total_serPSNR) + "," + str(total_vsSSIM) + "," + str(total_vsPSNR) + ",")
+
+print("Done") 
