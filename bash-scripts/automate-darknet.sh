@@ -2,11 +2,8 @@
 # Place this file in darknet directory
 # Make sure all paths used exist
 # Make sure the labels/ folder has been copied from the original darknet repo into the data/ folder
-# FFE path
-#ffePath=/home/jonathan/Documents/Thesis/frame-feed-evaluator
 darknetPath=/home/marko/Thesis/yolo-perception/darknet
 # darknet path
-originalImages="./data/anotated"
 declare -a presetPaths=(
 "../../data/ffmpeg/non_anotated/original_from_video"
 "../../data/ffmpeg/non_anotated/ufSSIM"
@@ -81,9 +78,6 @@ counter=0
 # directory for jpg files, probably shoud be $PWD/data/anotated/*.jpg
 directory=$PWD/data/images_to_check/*.jpg
 
-# first, run ffe
-#cd $ffePath
-#./automate.sh # run ffe automation
 cd $darknetPath
 # run darknet on everything
 for preset in ${presetPaths[@]}; do
