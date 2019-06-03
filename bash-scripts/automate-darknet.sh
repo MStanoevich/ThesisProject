@@ -53,10 +53,11 @@ starttime=`date +%s`
 darknet_execution() { # $1 = path $2 = name of encoding
     echo "darknet execution"
     # create directory for preset
-    if [ ! -d $2/automate_results ]; then
+    if [ ! -d $PWD/$2 ]; then
         mkdir $PWD/$2
-
     fi
+    # Could add command `rm -f $PWD/$2/*` to clear directory if wanted
+    
     data="data/formula.data"
     config="cfg/formula.cfg"
     weights="backup/formula_final.weights"
