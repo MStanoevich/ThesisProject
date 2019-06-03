@@ -75,8 +75,6 @@ darknet_execution() { # $1 = path $2 = name of encoding
     done
 }
 counter=0
-# directory for jpg files, probably shoud be $PWD/data/anotated/*.jpg
-directory=$PWD/data/images_to_check/*.jpg
 
 cd $darknetPath
 # run darknet on everything
